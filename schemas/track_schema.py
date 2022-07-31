@@ -12,3 +12,19 @@ class BaseTrack(BaseModel):
     class Config:
         orm_mode = True
 
+
+class AllDataInTrack(BaseModel):
+    AlbumTitle: str
+    TrackName: str
+    TrackPrice: float
+    TrackId: int
+    Composer: Optional[str] = None
+    Milliseconds: int
+    Bytes: int
+    ArtistName: str
+    GenreName: str
+    MediaTypeName: str
+    
+    class Config:
+        orm_mode = True
+
