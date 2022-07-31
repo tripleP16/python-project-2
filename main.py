@@ -20,10 +20,12 @@ def get_application():
         allow_headers=["*"],
     )
 
-    app.include_router(singer_router, prefix="/api/v1")
-    app.include_router(singers_router, prefix="/api/v1")
-    app.include_router(albums_router, prefix="/api/v1")
-    app.include_router(songs_router, prefix="/api/v1")
+    prefix = "/music-store/api/v1"
+
+    app.include_router(singer_router, prefix=prefix)
+    app.include_router(singers_router, prefix=prefix)
+    app.include_router(albums_router, prefix=prefix)
+    app.include_router(songs_router, prefix=prefix)
     return app
 
 app = get_application()

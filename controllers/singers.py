@@ -11,7 +11,7 @@ router = APIRouter(
     prefix="/singers",
     tags=["Singers"],
 )
-@router.get("/", response_model=List[ArtistInBd], status_code=status.HTTP_200_OK)
+@router.get("/", response_model=List[ArtistInBd], status_code=status.HTTP_200_OK, name="singers")
 async def get_singers(
     db: SessionLocal = Depends(get_db),
     artist_repo: ArtistRepository = Depends(get_artist_repo),
@@ -22,7 +22,7 @@ async def get_singers(
     return artist_list
 
 
-@router.get("/{id}", response_model=List[AlbumInBd], status_code=status.HTTP_200_OK, name="get_singer_albums")
+@router.get("/{id}", response_model=List[AlbumInBd], status_code=status.HTTP_200_OK, name="singer-albums")
 async def get_singer_albums(
     id: int,
     db: SessionLocal = Depends(get_db),

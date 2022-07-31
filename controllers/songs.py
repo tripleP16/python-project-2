@@ -10,7 +10,7 @@ router = APIRouter(
     tags=["Song"],
 )
 
-@router.get("/{id}", response_model= AllDataInTrack,  status_code=status.HTTP_200_OK, name="get_song_data")
+@router.get("/{id}", response_model= AllDataInTrack,  status_code=status.HTTP_200_OK, name="songs")
 async def get_song_details(id: int, db: SessionLocal = Depends(get_db), repository: TrackRepository = Depends(get_track_repo)):
     track = await repository.get_track_by_id(id, db)
     if not track:

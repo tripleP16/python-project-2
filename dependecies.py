@@ -10,16 +10,16 @@ def get_db():
         yield db
     finally:
         db.close()
-
-def get_artist_repo():
-    return ArtistRepository()
-
-def get_track_repo():
-    return TrackRepository()
-
 def override_get_db():
     db = TestingSessionLocal()
     try:
         yield db
     finally:
         db.close()
+        
+def get_artist_repo():
+    return ArtistRepository()
+
+def get_track_repo():
+    return TrackRepository()
+

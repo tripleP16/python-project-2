@@ -14,7 +14,7 @@ router = APIRouter(
     tags=["Singer"],
 )
 
-@router.get("/{id}", response_model= List[BaseTrack], status_code=status.HTTP_200_OK, name="get_singer_songs")
+@router.get("/{id}", response_model= List[BaseTrack], status_code=status.HTTP_200_OK, name="singer-songs")
 async def get_singer_songs(
     id: int,
     db: SessionLocal = Depends(get_db),
