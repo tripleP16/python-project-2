@@ -5,6 +5,7 @@ class Artist(BaseModel):
     ArtistId: int
     Name: str
 
-class ArtistInBd(Artist):
+class ArtistInBd(BaseModel):
+    Name: str
     class Config:
         orm_mode = True
